@@ -7,6 +7,8 @@ import 'package:instagram_flutter/responsive/web_screen_layout.dart';
 import 'package:instagram_flutter/screens/login_screen.dart';
 import 'package:instagram_flutter/utils/colors.dart';
 
+import 'screens/sigup_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
       //   mobileScreenLayout: MobileScreeLayout(),
       //   webScreenLayout: WebScreeLayout(),
       // ),
-      home: const LogInScreen(),
+      home: const SignupScreen(),
     );
   }
 }
