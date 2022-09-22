@@ -8,6 +8,11 @@ import 'package:instagram_flutter/utils/colors.dart';
 import 'package:instagram_flutter/utils/utils.dart';
 import 'package:instagram_flutter/widget/text_fied.dart';
 
+import '../responsive/mobile_screen_layout.dart';
+import '../responsive/responive_layout_screen.dart';
+import '../responsive/web_screen_layout.dart';
+import 'login_screen.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
 
@@ -58,8 +63,23 @@ class _SignupScreenState extends State<SignupScreen> {
     if (res != 'success') {
       showSnackBar(res, context);
     } else {
-      //
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+            mobileScreenLayout: MobileScreeLayout(),
+            webScreenLayout: WebScreeLayout(),
+          ),
+        ),
+      );
     }
+  }
+
+  void navigateToLogin() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const LogInScreen(),
+      ),
+    );
   }
 
   @override
@@ -176,7 +196,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: const Text("Already have an account?"),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: navigateToLogin,
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: const Text(
