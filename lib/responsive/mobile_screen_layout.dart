@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_flutter/utils/colors.dart';
+import 'package:instagram_flutter/utils/global_variables.dart';
 
 class MobileScreeLayout extends StatefulWidget {
   const MobileScreeLayout({Key? key}) : super(key: key);
@@ -29,6 +30,7 @@ class _MobileScreeLayoutState extends State<MobileScreeLayout> {
     pageController.jumpToPage(page);
   }
 
+  // to set the state on the tapped page
   void onPageChanged(int page) {
     setState(() {
       _page = page;
@@ -39,16 +41,10 @@ class _MobileScreeLayoutState extends State<MobileScreeLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        children: [
-          Text('feed'),
-          Text('search'),
-          Text('add post'),
-          Text('notification'),
-          Text('profile'),
-        ],
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: onPageChanged,
+        children: homeScreenItems,
       ),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: mobileBackgroundColor,
